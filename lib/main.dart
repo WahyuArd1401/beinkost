@@ -1,4 +1,5 @@
-import 'package:beinkost/pages/login_page.dart';
+// import 'package:beinkost/pages/login_page.dart';
+import 'package:beinkost/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(    
-      home: LoginPage(),
+      home: SignUpPage(),
     );
   }
 }

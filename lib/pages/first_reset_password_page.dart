@@ -43,6 +43,7 @@ class FirstResetPasswordPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 47),
                 const TextField(
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: 'Masukkan Email',
                   ),
