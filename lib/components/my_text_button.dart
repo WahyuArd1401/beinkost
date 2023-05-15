@@ -16,6 +16,8 @@ class MyTextButton extends StatelessWidget {
         text,
         style: TextStyle(
           color: textColor,
+          fontFamily: 'Quicksand',
+          fontSize: 12,
           fontWeight: FontWeight.normal
         ),
       )

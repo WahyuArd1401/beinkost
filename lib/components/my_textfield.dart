@@ -5,14 +5,14 @@ class MyTextField extends StatelessWidget {
   // final controller;
   final String hintText;
   final bool obscureText;
-  final TextInputType;
+  final TextInputType inputType;
 
   const MyTextField({
     super.key,
     // required this.controller,
     required this.hintText,
     required this.obscureText,
-    required this.TextInputType,
+    required this.inputType,
   });  
 
   @override
@@ -20,7 +20,7 @@ class MyTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0.0),
       child: TextField(
-        keyboardType: TextInputType,
+        keyboardType: inputType,
         // controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
@@ -33,7 +33,8 @@ class MyTextField extends StatelessWidget {
             fillColor: Colors.grey.shade200,
             filled: true,
             hintText: hintText,
-            hintStyle: TextStyle(color: Colors.grey[500])),
+            hintStyle: TextStyle(color: Colors.grey[500])
+          ),
       ),
     );
   }

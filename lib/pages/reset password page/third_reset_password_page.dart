@@ -1,10 +1,11 @@
-import 'package:beinkost/pages/login_page.dart';
+import 'package:beinkost/pages/sign_in.dart';
 import 'package:flutter/material.dart';
-import '../components/my_custom_button.dart';
-import '../components/my_text_button.dart';
+import '../../components/my_custom_button.dart';
+import '../../components/my_text_button.dart';
+import 'fourth_reset_password_page.dart';
 
-class FourthResetPasswordPage extends StatelessWidget {
-  FourthResetPasswordPage({super.key});
+class ThirdResetPasswordPage extends StatelessWidget {
+  ThirdResetPasswordPage({super.key});
 
   void onPressed(){}
 
@@ -25,25 +26,45 @@ class FourthResetPasswordPage extends StatelessWidget {
                 const Icon(Icons.add,size: 87,color: Colors.blue),
                 const SizedBox(height: 138),
                 const Text(
-                  'Ubah Password',
+                  'Atur Kata Sandi Baru!',
                   style: TextStyle(
-                    fontFamily: 'Quicksand',
                     fontSize: 24,
                     fontWeight: FontWeight.w600
                   ),
                 ),
                 const Text(
-                  'Selamat, password anda telah berhasil diperbarui!',
+                  'Password harus berupa kombinasi Huruf, Angka dan Simbol',
                   style: TextStyle(
-                    fontFamily: 'Quicksand',
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const SizedBox(height: 82),
-                MyCustomButton(text: 'Lanjut Masuk', onTap: (){
+                const SizedBox(height: 32),
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: 'Password Baru'
+                  ),
+                ),
+                const SizedBox(height: 2),
+                const Text(
+                  'Minimal 8 karakter',
+                  style: TextStyle(
+                    fontSize: 8,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                const SizedBox(height: 46),
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: 'Konfirmasi Password Baru'
+                  ),
+                ),
+                const SizedBox(height: 42),
+                MyCustomButton(text: 'Reset Password', onTap: (){
                   Navigator.push(context, 
-                    MaterialPageRoute(builder: (context) => LoginPage())
+                    MaterialPageRoute(builder: (context) => FourthResetPasswordPage())
                   );
                 }),
                 Container(
@@ -55,7 +76,7 @@ class FourthResetPasswordPage extends StatelessWidget {
                       const Icon(Icons.arrow_back, size: 15),
                       MyTextButton(text: 'Kembali Masuk', textColor: Colors.black, onTap: (){
                         Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage())
+                          MaterialPageRoute(builder: (context) => SignInPage())
                         );
                       }),
                     ],

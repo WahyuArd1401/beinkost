@@ -1,13 +1,15 @@
-import 'package:beinkost/pages/third_reset_password_page.dart';
+import 'package:beinkost/components/my_text_button.dart';
+import 'package:beinkost/pages/reset%20password%20page/second_reset_password_page.dart';
+import 'package:beinkost/pages/sign_in.dart';
 import 'package:flutter/material.dart';
-import '../components/my_custom_button.dart';
-import '../components/my_text_button.dart';
-import 'login_page.dart';
+import '../../components/my_custom_button.dart';
 
-class SecondResetPasswordPage extends StatelessWidget {
-  SecondResetPasswordPage({super.key});
+class FirstResetPasswordPage extends StatelessWidget {
+  FirstResetPasswordPage({super.key});
 
-  void onPressed(){}
+  void resetPassword() {
+    return ;
+  }
 
   @override
   Widget build(BuildContext context){
@@ -26,60 +28,42 @@ class SecondResetPasswordPage extends StatelessWidget {
                 const Icon(Icons.add,size: 87,color: Colors.blue),
                 const SizedBox(height: 138),
                 const Text(
-                  'Cek Email Kamu!',
+                  'Lupa Password?',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w600
                   ),
                 ),
                 const Text(
-                  'link reset password telah dikirim ke',
+                  'tenang jangan panik',
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const Text(
-                  'bein**@gmail.com',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                const SizedBox(height: 47),
+                const TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    hintText: 'Masukkan Email',
                   ),
                 ),
-                const SizedBox(height: 39),
+                const SizedBox(height: 80),
                 MyCustomButton(text: 'Reset Password', onTap: (){
-                  Navigator.push(context, 
-                    MaterialPageRoute(builder:(context) => ThirdResetPasswordPage())
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SecondResetPasswordPage())
                   );
                 }),
-                Center(
-                  child: Row(
-                    children: [
-                      const Text(
-                        'Belum menerima email?'
-                      ), 
-                      TextButton(
-                        onPressed: onPressed, 
-                        child: const Text(
-                          'Kirim Ulang',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold
-                          ),
-                        )
-                      )
-                    ],
-                  ),
-                ),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 5),
-                  margin: const EdgeInsets.fromLTRB(0, 200, 0, 50),
+                  margin: const EdgeInsets.fromLTRB(0, 100, 0, 50),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Icon(Icons.arrow_back, size: 15),
                       MyTextButton(text: 'Kembali Masuk', textColor: Colors.black, onTap: (){
                         Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage())
+                          MaterialPageRoute(builder: (context) => SignInPage())
                         );
                       }),
                     ],
@@ -87,10 +71,9 @@ class SecondResetPasswordPage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ),
       ),
     );
   }
-  
 }

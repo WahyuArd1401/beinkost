@@ -1,11 +1,11 @@
-import 'package:beinkost/pages/fourth_reset_password_page.dart';
+import 'package:beinkost/pages/reset%20password%20page/third_reset_password_page.dart';
+import 'package:beinkost/pages/sign_in.dart';
 import 'package:flutter/material.dart';
-import '../components/my_custom_button.dart';
-import '../components/my_text_button.dart';
-import 'login_page.dart';
+import '../../components/my_custom_button.dart';
+import '../../components/my_text_button.dart';
 
-class ThirdResetPasswordPage extends StatelessWidget {
-  ThirdResetPasswordPage({super.key});
+class SecondResetPasswordPage extends StatelessWidget {
+  SecondResetPasswordPage({super.key});
 
   void onPressed(){}
 
@@ -26,47 +26,50 @@ class ThirdResetPasswordPage extends StatelessWidget {
                 const Icon(Icons.add,size: 87,color: Colors.blue),
                 const SizedBox(height: 138),
                 const Text(
-                  'Atur Kata Sandi Baru!',
+                  'Cek Email Kamu!',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w600
                   ),
                 ),
                 const Text(
-                  'Password harus berupa kombinasi Huruf, Angka dan Simbol',
+                  'link reset password telah dikirim ke',
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const SizedBox(height: 32),
-                const TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password Baru'
-                  ),
-                ),
-                const SizedBox(height: 2),
                 const Text(
-                  'Minimal 8 karakter',
+                  'bein**@gmail.com',
                   style: TextStyle(
-                    fontSize: 8,
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const SizedBox(height: 46),
-                const TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Konfirmasi Password Baru'
-                  ),
-                ),
-                const SizedBox(height: 42),
+                const SizedBox(height: 39),
                 MyCustomButton(text: 'Reset Password', onTap: (){
                   Navigator.push(context, 
-                    MaterialPageRoute(builder: (context) => FourthResetPasswordPage())
+                    MaterialPageRoute(builder:(context) => ThirdResetPasswordPage())
                   );
                 }),
+                Center(
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Belum menerima email?'
+                      ), 
+                      TextButton(
+                        onPressed: onPressed, 
+                        child: const Text(
+                          'Kirim Ulang',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold
+                          ),
+                        )
+                      )
+                    ],
+                  ),
+                ),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 5),
                   margin: const EdgeInsets.fromLTRB(0, 200, 0, 50),
@@ -76,7 +79,7 @@ class ThirdResetPasswordPage extends StatelessWidget {
                       const Icon(Icons.arrow_back, size: 15),
                       MyTextButton(text: 'Kembali Masuk', textColor: Colors.black, onTap: (){
                         Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage())
+                          MaterialPageRoute(builder: (context) => SignInPage())
                         );
                       }),
                     ],
