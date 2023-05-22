@@ -16,5 +16,6 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ## How to update
-- git commit -m "message"
-- git push origin master
+- git add -A (add all update page)
+- git commit -m "message" (commit update)
+- git push origin master (push update to repository)
