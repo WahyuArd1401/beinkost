@@ -1,16 +1,15 @@
-import 'package:beinkost/components/my_icon_button.dart';
-import 'package:beinkost/components/my_text.dart';
-import 'package:beinkost/pages/detail_kos_page.dart';
+import 'package:beinkost/pages/kamar/detail_kamar_page.dart';
 import 'package:flutter/material.dart';
 
-class TambahFasilitasPage extends StatefulWidget {
-  TambahFasilitasPage({super.key});
+import '../../components/my_icon_button.dart';
+import '../../components/my_text.dart';
 
-  @override
-  State<TambahFasilitasPage> createState() => _TambahFasilitasPage();
+class TambahFasilitasKosPage extends StatefulWidget {
+  
+  State<TambahFasilitasKosPage> createState() => _TambahFasilitasKosPage();
 }
 
-class _TambahFasilitasPage extends State<TambahFasilitasPage> {
+class _TambahFasilitasKosPage extends State<TambahFasilitasKosPage> {
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -24,7 +23,7 @@ class _TambahFasilitasPage extends State<TambahFasilitasPage> {
               children: [
                 MyIconButton(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKosPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKamarPage()));
                   }, 
                   icon: const Icon(Icons.close, size: 15,)
                 ),

@@ -1,3 +1,4 @@
+import 'package:beinkost/components/my_text.dart';
 import 'package:beinkost/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 import '../../components/my_custom_button.dart';
@@ -6,55 +7,40 @@ import '../../components/my_text_button.dart';
 class FourthResetPasswordPage extends StatelessWidget {
   FourthResetPasswordPage({super.key});
 
-  void onPressed(){}
-
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Reset Password Page'),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Container(
-            margin: const EdgeInsets.fromLTRB(33, 33, 33, 0),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(33, 43, 33, 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.add,size: 87,color: Colors.blue),
+                //Logo
+                const Image(image: AssetImage('assets/images/bangkit.jpg'), width: 87, height: 87,),
                 const SizedBox(height: 138),
-                const Text(
-                  'Ubah Password',
-                  style: TextStyle(
-                    fontFamily: 'Quicksand',
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600
-                  ),
-                ),
-                const Text(
-                  'Selamat, password anda telah berhasil diperbarui!',
-                  style: TextStyle(
-                    fontFamily: 'Quicksand',
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
+
+                //Text
+                MyText(text: 'Ubah Password', fontSize: 24, fontWeight: FontWeight.w600),
+                MyText(text: 'Selamat, password anda telah berhasil diperbarui!', fontSize:12, fontWeight: FontWeight.w400),
                 const SizedBox(height: 82),
                 MyCustomButton(text: 'Lanjut Masuk', onTap: (){
-                  Navigator.push(context, 
+                  Navigator.pushReplacement(context, 
                     MaterialPageRoute(builder: (context) => SignInPage())
                   );
                 }),
+                SizedBox(height: 210),
+                
+                //Kembali Masuk 
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 5),
-                  margin: const EdgeInsets.fromLTRB(0, 200, 0, 50),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.arrow_back, size: 15),
-                      MyTextButton(text: 'Kembali Masuk', textColor: Colors.black, onTap: (){
-                        Navigator.push(context,
+                      const Icon(Icons.arrow_back, size: 15, color: Color.fromRGBO(76, 103, 147, 1)),
+                      MyTextButton(text: 'Kembali Masuk', textColor: const Color.fromRGBO(76, 103, 147, 1), onTap: (){
+                        Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => SignInPage())
                         );
                       }),

@@ -1,44 +1,50 @@
 import 'package:beinkost/components/my_card.dart';
 import 'package:beinkost/components/my_text.dart';
+import 'package:beinkost/pages/landing.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
   State<DashboardPage> createState() => _DashboardPageState();
+
+  DashboardPage({super.key});
+
 }
 
 class _DashboardPageState extends State<DashboardPage>{
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      body: SafeArea(
+      body: 
+      SafeArea(
         child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 27,),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(27, 20, 27, 26),
             child: Column(
               children: [
-                const SizedBox(height: 20),
-                Container(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,                  
-                    children: const [
-                      Text(
-                        'Selamat datang, Ronaldo!',
-                        style: TextStyle(
-                          fontFamily: 'Quicksand',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      SizedBox(width: 64),
-                      Icon(Icons.account_box, size: 22),
-                      Icon(Icons.notifications_active, size: 22),
-                    ],
-                  ),
+
+                //Nama akun & Icon notif + account
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MyText(text: 'Selamat datang, Ronaldo!', fontSize: 14, fontWeight: FontWeight.w400),
+                    Row(
+                      children: [
+                        IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_active, size: 30, color: Color.fromRGBO(76, 103, 147, 1))),
+                        IconButton(
+                          onPressed: (){
+                            Navigator.pushReplacement(context, 
+                            MaterialPageRoute(builder: (context)=> LandingPage()));
+                          }, 
+                          icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)),
+                      ],
+                    )
+                  ],
                 ),
                 const SizedBox(height: 15),
+
+                //Title page & Logo
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -51,25 +57,25 @@ class _DashboardPageState extends State<DashboardPage>{
                     ),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      child: const Icon(Icons.account_box, size: 57),
+                      child: const Image(image: AssetImage('assets/images/bangkit.jpg'), height: 44, width: 47,),
                     ),
                   ],
                 ),
                 const SizedBox(height: 10),
                 MyCard(
-                  icon: const Icon(Icons.home, size: 50), 
+                  icon: const Icon(Icons.home, size: 50, color: Colors.white,), 
                   judul: 'Jumlah Kos', 
                   deskripsi: 'Jumlah kos yang anda kelola', 
                   jumlah: '5'
                 ),
                 MyCard(
-                  icon: const Icon(Icons.people, size: 50,), 
+                  icon: const Icon(Icons.people, size: 50, color: Colors.white,), 
                   judul: 'Jumlah Karyawan', 
                   deskripsi: 'Jumlah karyawan anda', 
                   jumlah: '10'
                 ),
                 MyCard(
-                  icon: const Icon(Icons.people, size: 50,), 
+                  icon: const Icon(Icons.people, size: 50, color: Colors.white,), 
                   judul: 'Jumlah Tamu', 
                   deskripsi: 'Jumlah Tamu anda', 
                   jumlah: '100'

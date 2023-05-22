@@ -1,11 +1,13 @@
 import 'package:beinkost/components/my_icon_button.dart';
 import 'package:beinkost/components/my_slider_card.dart';
 import 'package:beinkost/components/my_text.dart';
-import 'package:beinkost/pages/tambah_fasilitas_page.dart';
-
-
+import 'package:beinkost/pages/kamar/data_kamar_page.dart';
+import 'package:beinkost/pages/kos/tambah_fasilitas_kos_page.dart';
+import 'package:beinkost/pages/landing.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import '../../components/my_black_text.dart';
+import '../../components/my_white_text.dart';
 
 class DetailKosPage extends StatelessWidget{
 
@@ -24,10 +26,16 @@ class DetailKosPage extends StatelessWidget{
             Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20), 
-                bottomRight: Radius.circular(20)
-              ),
-              color: Color.fromRGBO(171, 171, 171, 1),
+                  bottomLeft: Radius.circular(20), 
+                  bottomRight: Radius.circular(20)
+                ),
+                color: Color.fromRGBO(76, 103, 147, 1),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.black,
+                    blurRadius: 10,
+                  )
+                ],
               ),
               child: Column(
                 children: [
@@ -36,10 +44,21 @@ class DetailKosPage extends StatelessWidget{
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        MyIconButton(onTap: (){}, icon: const Icon(Icons.close, size: 15)),
+
+                        //Back button
+                        MyIconButton(
+                          onTap: (){
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LandingPage()));
+                          } , 
+                          icon: const Icon(
+                            Icons.arrow_back, size: 30, color: Colors.white,
+                          ),
+                        ),
                         const SizedBox(height: 17,),
-                        MyText(text: 'Kos Permata', fontSize: 24, fontWeight: FontWeight.w600),
-                        MyText(
+
+                        //Title page 
+                        MyWhiteText(text: 'Kos Permata', fontSize: 24, fontWeight: FontWeight.w600),
+                        MyWhiteText(
                           text: 'aslkdlashdjahskahkdhaksasddddddddddddsddddddddddddhdkas', 
                           fontSize: 12, 
                           fontWeight: FontWeight.w400,
@@ -47,9 +66,9 @@ class DetailKosPage extends StatelessWidget{
                         const SizedBox(height: 15),
                         Row(
                           children: [
-                            const Icon(Icons.male, size: 10),
+                            const Icon(Icons.male, size: 20, color: Colors.white,),
                             const SizedBox(width: 5),
-                            MyText(text: 'Laki-laki', fontSize: 12, fontWeight: FontWeight.w400)
+                            MyWhiteText(text: 'Laki-laki', fontSize: 12, fontWeight: FontWeight.w400)
                           ],
                         ),
                         const SizedBox(height: 5),
@@ -58,17 +77,22 @@ class DetailKosPage extends StatelessWidget{
                           children: [
                             Row(
                               children: [
-                                const Icon(Icons.gps_fixed, size: 10,),
+                                const Icon(Icons.location_on, size: 20, color: Colors.white,),
                                 const SizedBox(width: 5),
-                                MyText(text: 'Malang, Jawa Timur', fontSize: 12, fontWeight: FontWeight.w400),
+                                MyWhiteText(text: 'Malang, Jawa Timur', fontSize: 12, fontWeight: FontWeight.w400),
                               ],
                             ),
                             ElevatedButton(
-                              onPressed: (){},
+                              onPressed: (){
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DataKamarPage()));
+                              },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.grey.shade600,
+                                backgroundColor: Color.fromRGBO(76, 103, 147, 1),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                side: const BorderSide(
+                                  color: Colors.white
                                 )
                               ), 
                               child: const Text('Data Kamar')
@@ -109,31 +133,41 @@ class DetailKosPage extends StatelessWidget{
               margin: EdgeInsets.symmetric(horizontal: 24),
               padding: EdgeInsets.all(14),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(171, 171, 171, 1),
-                borderRadius: BorderRadius.circular(20)
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.black,
+                    blurRadius: 3,
+                    offset: Offset.fromDirection(45.0),
+                  )
+                ]
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MyText(text: 'Detail', fontSize: 15, fontWeight: FontWeight.w700),
-                  MyText(text: 'Detail Kost Permata ini berada di area kampus Kota Malang dan merupakan hunian dengan fasiitas lengkap dan lingkungan nyaman untuk ditempati.', fontSize: 12, fontWeight: FontWeight.w400),
+                  MyBlackText(text: 'Detail', fontSize: 15, fontWeight: FontWeight.w700),
+                  MyBlackText(text: 'Detail Kost Permata ini berada di area kampus Kota Malang dan merupakan hunian dengan fasiitas lengkap dan lingkungan nyaman untuk ditempati.', fontSize: 12, fontWeight: FontWeight.w400),
                   const SizedBox(height: 8,),
-                  MyText(text: 'Fasilitas', fontSize: 12, fontWeight: FontWeight.w700),
+                  MyBlackText(text: 'Fasilitas', fontSize: 12, fontWeight: FontWeight.w700),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       ElevatedButton.icon(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> TambahFasilitasPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> TambahFasilitasKosPage()));
                         }, 
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey.shade600,
+                          backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)
+                            borderRadius: BorderRadius.circular(14)
                           ),
+                          side: const BorderSide(
+                            color: Color.fromRGBO(76, 103, 147, 1)
+                          )
                         ),
-                        icon: const Icon(Icons.add, size: 15), 
-                        label: const Text('Tambah Fasilitas'))
+                        icon: const Icon(Icons.add, size: 15, color: Color.fromRGBO(76, 103, 147, 1),), 
+                        label: MyText(text: 'Tambah Fasilitas', fontSize: 12, fontWeight: FontWeight.w400))
                     ],
                   )
                 ],

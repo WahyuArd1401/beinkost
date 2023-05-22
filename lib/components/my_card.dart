@@ -7,14 +7,18 @@ class MyCard extends StatelessWidget{
   final String deskripsi;
   final String jumlah;
 
-  MyCard({super.key, required this.icon,required this.judul, required this.deskripsi, required this.jumlah});
+  MyCard({super.key, required this.icon,required this.judul, required this.deskripsi, required this.jumlah,});
 
   @override
   Widget build(BuildContext context){
-    return Card(
-      child: Expanded(
-        child: Container(
-          margin: const EdgeInsets.all(12),
+    return GestureDetector(
+      child: Card(
+        color: const Color.fromRGBO(76, 103, 147, 1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10)
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -23,19 +27,43 @@ class MyCard extends StatelessWidget{
                 children: [
                   icon,
                   const SizedBox(height: 10),
-                  MyText(text: judul, fontSize: 20, fontWeight: FontWeight.w600),
+                  Text(
+                    judul,
+                    style: const TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
                   const SizedBox(height: 5),
-                  MyText(text: deskripsi, fontSize: 12, fontWeight: FontWeight.w400)
+                  Text(
+                    deskripsi,
+                    style: const TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
                 ],
               ),
               Container(
                 margin: const EdgeInsets.only(right: 20),
-                child : MyText(text: jumlah, fontSize: 60, fontWeight: FontWeight.bold),  
+                child : Text(
+                    jumlah,
+                    style: const TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 60,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
               ),
             ],
           ),
         ),
       ),
-    );
+    ); 
   }
 }

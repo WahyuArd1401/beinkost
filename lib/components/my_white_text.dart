@@ -1,11 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
-class MyText extends StatelessWidget {
+class MyWhiteText extends StatelessWidget {
   String text;
   double fontSize;
   FontWeight fontWeight;
   
-  MyText({super.key, required this.text, required this.fontSize, required this.fontWeight});
+  MyWhiteText({super.key, required this.text, required this.fontSize, required this.fontWeight});
 
   @override
   Widget build(BuildContext context){
@@ -15,7 +17,7 @@ class MyText extends StatelessWidget {
         fontFamily: 'Quicksand',
         fontSize: fontSize,
         fontWeight: fontWeight,
-        color: const Color.fromRGBO(76, 103, 147, 1)
+        color: Colors.white
       ),
     );
   }

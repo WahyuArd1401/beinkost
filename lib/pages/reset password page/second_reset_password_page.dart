@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
+import 'package:beinkost/components/my_text.dart';
 import 'package:beinkost/pages/reset%20password%20page/third_reset_password_page.dart';
 import 'package:beinkost/pages/sign_in.dart';
 import 'package:flutter/material.dart';
@@ -12,73 +15,60 @@ class SecondResetPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Reset Password Page'),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          child: Container(
-            margin: const EdgeInsets.fromLTRB(33, 33, 33, 0),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(33, 43, 33, 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.add,size: 87,color: Colors.blue),
+                //Logo
+                const Image(image: AssetImage('assets/images/bangkit.jpg'), width: 87, height: 87,),
                 const SizedBox(height: 138),
-                const Text(
-                  'Cek Email Kamu!',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600
-                  ),
-                ),
-                const Text(
-                  'link reset password telah dikirim ke',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                const Text(
-                  'bein**@gmail.com',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
+
+                //Text
+                MyText(text: 'Cek Email Kamu!', fontSize: 24, fontWeight: FontWeight.w600),
+                MyText(text: 'Link reset password telah dikirim ke \nbein***@gmail.com', fontSize: 12, fontWeight: FontWeight.w400),
                 const SizedBox(height: 39),
+
+                //Button Reset Password
                 MyCustomButton(text: 'Reset Password', onTap: (){
-                  Navigator.push(context, 
+                  Navigator.pushReplacement(context, 
                     MaterialPageRoute(builder:(context) => ThirdResetPasswordPage())
                   );
                 }),
-                Center(
-                  child: Row(
-                    children: [
-                      const Text(
-                        'Belum menerima email?'
-                      ), 
-                      TextButton(
-                        onPressed: onPressed, 
-                        child: const Text(
-                          'Kirim Ulang',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold
-                          ),
-                        )
+
+                //Text
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MyText(text: 'Belum menerima email?', fontSize: 12, fontWeight: FontWeight.w400),
+                    TextButton(
+                      onPressed: (){}, 
+                      child: const Text(
+                        'Kirim Ulang',
+                        style: TextStyle(
+                          color: Color.fromRGBO(76, 103, 147, 1),
+                          fontFamily: 'Quicksand',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600
+                        ),
                       )
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+                const SizedBox(height: 190,),
+
+                //Kembali masuk
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 5),
-                  margin: const EdgeInsets.fromLTRB(0, 200, 0, 50),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.arrow_back, size: 15),
-                      MyTextButton(text: 'Kembali Masuk', textColor: Colors.black, onTap: (){
-                        Navigator.push(context,
+                      const Icon(Icons.arrow_back, size: 15, color: Color.fromRGBO(76, 103, 147, 1)),
+                      MyTextButton(text: 'Kembali Masuk', textColor: const Color.fromRGBO(76, 103, 147, 1), onTap: (){
+                        Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => SignInPage())
                         );
                       }),

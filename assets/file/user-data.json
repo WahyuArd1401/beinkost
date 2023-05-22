@@ -1,0 +1,9 @@
+{
+  "respone_status": "OK",
+  "response_message": "Auth Succesfully",
+  "data": [
+    {
+      "email": "admin@gmail.com"
+    }
+  ]
+}

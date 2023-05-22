@@ -37,6 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   image_picker: ^0.8.7+4
   carousel_slider: ^4.2.1
+  http: ^0.13.6
+  shared_preferences: ^2.1.1
+  date_field: ^3.0.5
+  curved_navigation_bar: ^1.0.3
+  intro_slider: ^4.2.0
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +70,7 @@ flutter:
      - assets/images/bangkit.jpg
      - assets/images/profil.jpg
      - assets/images/house.jpg
+     - assets/file/user-data.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
