@@ -1,8 +1,9 @@
 import 'package:beinkost/components/my_text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyCard extends StatelessWidget{
-  final Icon icon;
+  final FaIcon icon;
   final String judul;
   final String deskripsi;
   final String jumlah;

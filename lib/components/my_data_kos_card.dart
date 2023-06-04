@@ -1,3 +1,4 @@
+import 'package:beinkost/components/my_icon_button.dart';
 import 'package:flutter/material.dart';
 
 import 'my_text.dart';
@@ -36,7 +37,7 @@ class MyDataKosCard extends StatelessWidget{
               borderRadius: BorderRadius.circular(10),
               child: SizedBox.fromSize(
                 size: const Size.fromRadius(48),
-                child: Image.asset(urlImage),
+                child: Image.asset(urlImage, fit: BoxFit.cover,),
               ),
             ),
             Expanded(
@@ -50,7 +51,7 @@ class MyDataKosCard extends StatelessWidget{
                       children: [
                         MyWhiteText(text: namaKos, fontSize: 12, fontWeight: FontWeight.w600),
                         Row(
-                          children: const [
+                          children: [
                             Icon(Icons.edit, size: 15, color: Colors.white,),
                             SizedBox(width: 5),
                             Icon(Icons.delete, size: 15, color: Colors.white,),

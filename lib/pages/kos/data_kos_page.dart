@@ -102,7 +102,7 @@ class _DataKosPage extends State<DataKosPage> {
                   onTap: () => {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DetailKosPage()))
                   },
-                  urlImage: 'assets/images/profil.jpg', 
+                  urlImage: 'assets/images/kos-permata.jpg', 
                   namaKos: 'Kos Permata', 
                   alamatKos: 'Jln. Kaki Tiga No.10', 
                   genderPenghuniKos: 'Laki-laki', 
@@ -112,7 +112,7 @@ class _DataKosPage extends State<DataKosPage> {
                   onTap: () => {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DetailKosPage()))
                   },
-                  urlImage: 'assets/images/bangkit.jpg', 
+                  urlImage: 'assets/images/kos-perdana.jpg', 
                   namaKos: 'Kos Indahyani', 
                   alamatKos: 'Jln. Kaki Lima No.10', 
                   genderPenghuniKos: 'Perempuan', 

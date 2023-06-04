@@ -5,6 +5,7 @@ import 'package:beinkost/components/my_slider_card.dart';
 import 'package:beinkost/components/my_text.dart';
 import 'package:beinkost/pages/kamar/data_kamar_page.dart';
 import 'package:beinkost/pages/kamar/edit_data_kamar.dart';
+import 'package:beinkost/pages/kamar/tambah_fasilitas_kamar_page.dart';
 import 'package:beinkost/pages/kos/tambah_fasilitas_kos_page.dart';
 import 'package:beinkost/pages/landing.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -166,6 +167,26 @@ class DetailKamarPage extends StatelessWidget{
                         MyListDetailKamar(myIconList: Icon(Icons.ac_unit, size: 12, color: Color.fromRGBO(76, 103, 147, 1)), myDeskripsiList: 'AC',),
                         MyListDetailKamar(myIconList: Icon(Icons.chair_alt, size: 12, color: Color.fromRGBO(76, 103, 147, 1)), myDeskripsiList: 'Kursi Belajar',),
                         MyListDetailKamar(myIconList: Icon(Icons.bed, size: 12, color: Color.fromRGBO(76, 103, 147, 1)), myDeskripsiList: 'Kasur',),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> TambahFasilitasKamarPage()));
+                              }, 
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(14)
+                                ),
+                                side: const BorderSide(
+                                  color: Color.fromRGBO(76, 103, 147, 1)
+                                )
+                              ),
+                              icon: const Icon(Icons.add, size: 15, color: Color.fromRGBO(76, 103, 147, 1),), 
+                              label: MyText(text: 'Tambah Fasilitas', fontSize: 12, fontWeight: FontWeight.w400))
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -175,6 +196,7 @@ class DetailKamarPage extends StatelessWidget{
                   MyCustomButton(text: 'Edit Data Kamar', onTap: (){
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> EditDataKamarPage()));
                   }),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),

@@ -5,6 +5,8 @@ import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
 import 'package:beinkost/components/my_custom_button.dart';
 import '../components/my_text.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SignUpPage extends StatefulWidget{
   SignUpPage({super.key});
@@ -28,10 +30,23 @@ class _SignUpPage extends State<SignUpPage> {
   final confirmPasswordController = TextEditingController();
 
   //DropDown
+  String? dropdownProvinceValue;
   String? dropdownValue;
-  var daftarProvinsi = [
-    'Jawa Timur', 'Jawa Tengah', 'Jawa Barat'
-  ];
+  //Fetch API ke Dropdown
+  Future<List<String>> getProvince() async {
+    String url = "https://rizalmaulana32.github.io/api-wilayah-indonesia/api/provinces.json";
+    http.Response respone = await http.get(Uri.parse(url));
+    if(respone.statusCode == 200){
+      List<String> items = [];
+      var jsonData = json.decode(respone.body) as List;
+      for (var element in jsonData){
+        items.add(element['name']);
+      }
+      return items;
+    } else {
+      throw respone.statusCode;
+    }
+  }
 
   bool visible = true;
   bool confirmVisible = true;
@@ -91,7 +106,7 @@ class _SignUpPage extends State<SignUpPage> {
                   Center(
                     child: Column(
                       children: [
-                        const Image(image: AssetImage('assets/images/bangkit.jpg'), width: 60, height: 60,),
+                        const Image(image: AssetImage('assets/images/logo-kost.jpg'), width: 60, height: 60,),
                         const SizedBox(height: 22,),
                         MyText(text: 'Masuk', fontSize: 16, fontWeight: FontWeight.w600),
                         MyText(text: 'selamat datang di beinsoft', fontSize: 12, fontWeight: FontWeight.w400),
@@ -254,35 +269,50 @@ class _SignUpPage extends State<SignUpPage> {
                       //Provinsi
                       MyText(text: 'Provinsi', fontSize: 12, fontWeight: FontWeight.w400),
                       const SizedBox(height: 2),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
-                          ),
-                          contentPadding: const EdgeInsets.all(10)
-                        ),
-                        isExpanded: true,
-                        items: const [
-                          DropdownMenuItem(value: 'Jawa Timur',child: Text('Jawa Timur')),
-                          DropdownMenuItem(value: 'Jawa Tengah',child: Text('Jawa Tengah')),
-                          DropdownMenuItem(value: 'Jawa Barat' ,child: Text('Jawa Barat')),
-                        ], 
-                        onChanged: (value){
-                          setState(() {
-                            value = dropdownValue;
-                          });
-                        },
-                        value: dropdownValue,
-                        // validator: (value){
-                        //   if(value!.isEmpty){
-                        //     return 'This field required';
-                        //   }
-                        // },
+                      FutureBuilder<List<String>>(
+                        future: getProvince(),
+                        builder: (context, snapshot){
+                          if (snapshot.hasData) {
+                            var data = snapshot.data!;
+                            return DropdownButtonFormField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
+                                ),
+                                contentPadding: const EdgeInsets.all(10),
+                                hintText: '',
+                              ),
+                              isExpanded: true,
+                              // Initial Value
+                              value: dropdownProvinceValue,
+
+                              // Down Arrow Icon
+                              icon: const Icon(Icons.keyboard_arrow_down),
+
+                              // Array list of items
+                              items: data.map((String items) {
+                                return DropdownMenuItem(
+                                  value: items,
+                                  child: Text(items),
+                                );
+                              }).toList(),
+                              // After selecting the desired option,it will
+                              // change button value to selected value
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownProvinceValue = newValue!;
+                                });
+                              },
+                            );
+                          } else {
+                            return const CircularProgressIndicator();
+                          }
+                        }
                       ),
                       const SizedBox(height: 4),
 
@@ -455,7 +485,6 @@ class _SignUpPage extends State<SignUpPage> {
                       const SizedBox(height: 52),
 
                       //Tombol Daftar
-                      const SizedBox(height: 52),
                       MyCustomButton(
                         text: 'Daftar', 
                         onTap: (){

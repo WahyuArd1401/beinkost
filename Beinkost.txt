@@ -1,0 +1,6 @@
+Belum nemu caranya :
+- Slide Sign In & Sign Up
+- API Kota/Kabupaten Sign Up masih belum bisa connect dengan provinsi
+- Setelah Sign In -> muncul pop up -> auto close pop up -> Dashboard
+- Bottom navigasi di file landing_page.dart, bukan milik masing-masing layout (Dashboard, Data Kos)
+- Munculin pop up Laporan (bentuk widget, kalo popup bentuk function)

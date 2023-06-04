@@ -1,40 +1,37 @@
 import 'package:beinkost/components/my_icon_button.dart';
 import 'package:beinkost/components/my_text.dart';
 import 'package:beinkost/components/my_text_icon_button.dart';
-import 'package:beinkost/pages/invoice/status_invoice_page.dart';
-import 'package:beinkost/pages/invoice/tambah_invoice_page.dart';
+import 'package:beinkost/pages/fasilitas/input_master_fasilitas_page.dart';
 import 'package:beinkost/pages/kontrak/detail_kontrak.dart';
 import 'package:beinkost/pages/kontrak/input_data_kontrak_page.dart';
-import 'package:beinkost/pages/landing.dart';
-import 'package:beinkost/pages/plan/reservasi_page.dart';
 import 'package:flutter/material.dart';
 
-class InvoicePage extends StatefulWidget{
-  InvoicePage({super.key});
+class MasterFasilitasPage extends StatefulWidget{
+  MasterFasilitasPage({super.key});
 
   @override
-  State<InvoicePage> createState() => _InvoicePage();
+  State<MasterFasilitasPage> createState() => _MasterFasilitasPage();
 }
 
-class _InvoicePage extends State<InvoicePage> {
+class _MasterFasilitasPage extends State<MasterFasilitasPage> {
   //Data Dummy Kamar
   // ignore: prefer_final_fields, unused_field
-  List<Map> _invoices = [
+  List<Map> _kamars = [
     {
-      'nama': 'Stephen Hawking',
-      'kamar': '1',
-      'lantai' : '3',
-      'kelas': '1',
-      'status' : true,
-      'harga' : 1000000,
-    }, {
-      'nama': 'Uvuuvewvwevv uvevuwuv osass',
-      'kamar': '1',
-      'lantai' : '4',
-      'kelas': '1',
-      'status' : false,
-      'harga' : 1000000,
+      'kategori-fasilitas': 'Publik',
+      'fasilitas': 'Parkiran Motor',
+      'jumlah': '1',
+    },{
+      'kategori-fasilitas': 'Publik',
+      'fasilitas': 'Wifi',
+      'jumlah': '1',
     },
+    {
+      'kategori-fasilitas': 'Private',
+      'fasilitas': 'Kasur',
+      'jumlah': '6',
+    },
+    
   ];
 
   @override
@@ -55,9 +52,7 @@ class _InvoicePage extends State<InvoicePage> {
                     Row(
                       children: [
                         IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_on, size: 30, color: Color.fromRGBO(76, 103, 147, 1))),
-                        IconButton(onPressed: (){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LandingPage()));
-                        }, icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)),
+                        IconButton(onPressed: (){}, icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)),
                       ],
                     )
                   ],
@@ -65,7 +60,7 @@ class _InvoicePage extends State<InvoicePage> {
                 SizedBox(height: 13),
 
                 //Title page
-                MyText(text: 'Inovice', fontSize: 24, fontWeight: FontWeight.w600),
+                MyText(text: 'Kos Permata | Data kamar', fontSize: 23, fontWeight: FontWeight.w600),
                 const SizedBox(height: 10),
 
                 //Search bar
@@ -102,10 +97,10 @@ class _InvoicePage extends State<InvoicePage> {
                   children: [
                     MyTextIconButton(
                       onTap: (){
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> TambahInvoicePage()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> InputMasterFasilitasPage()));
                     }, 
                     icon: Icon(Icons.add, size: 15,color: Colors.white,), 
-                    text: 'Tambah Invoice'
+                    text: 'Tambah Fasilitas'
                     ),
                   ],
                 ),
@@ -127,6 +122,7 @@ class _InvoicePage extends State<InvoicePage> {
 
   _createDataTable() {
     return Container(
+      width: 292,
       child: DataTable(
       columns: _creatColumns(), 
       rows: _createRows(),
@@ -136,43 +132,35 @@ class _InvoicePage extends State<InvoicePage> {
       border: TableBorder(
         horizontalInside: BorderSide(color: Color.fromRGBO(76, 103, 147, 1)),
       ),
-      horizontalMargin: 12
+      horizontalMargin: 7
     ),
     ) ;
   }
 
   _creatColumns() {
     return [
-      const DataColumn(label: Expanded(child: Text('Nama',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center))),
-      const DataColumn(label: Expanded(child: Text('Kamar | Lantai',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center,))),
-      const DataColumn(label: Expanded(child: Text('Kelas',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center))),
-      const DataColumn(label: Expanded(child: Text('Harga',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center))),
-      const DataColumn(label: Expanded(child: Text('Status',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center))),
-      const DataColumn(label: Expanded(child: Text('Actions',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center))),
+      const DataColumn(label: Expanded(child: Text('Kategori Fasilitas',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center))),
+      const DataColumn(label: Expanded(child: Text('Fasilitas',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center,softWrap: true,))),
+      const DataColumn(label: Expanded(child: Text('Jumlah',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center))),
+      const DataColumn(label: Expanded(child: Text('Action',style: TextStyle(fontFamily: 'Quicksand', fontSize: 11,),textAlign: TextAlign.center))),
     ];
   }
 
   
   _createRows() {
-    return _invoices
-    .map((invoice) => DataRow(cells: [
-      DataCell(ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 60,),
-        child: Center(
-          child: Text(invoice['nama'].toString(), textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))
-      ),),
-      DataCell(Center(child: Text(invoice['kamar'].toString() + ' | ' + invoice['lantai'] ,  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
-      DataCell(Center(child: Text(invoice['kelas'],  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
-      DataCell(Center(child: Text('Rp. ' + invoice['harga'].toString(), textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
-      DataCell(Center(child: Text(invoice['status'].toString(),  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
+    return _kamars
+    .map((kamar) => DataRow(cells: [
+      DataCell(Center(child: Text(kamar['kategori-fasilitas'].toString(), textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text(kamar['fasilitas'].toString(),  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text(kamar['jumlah'],  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
       DataCell(Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyIconButton(onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> StatusInvoicePage()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MasterFasilitasPage()));
           }, icon: Icon(Icons.remove_red_eye, size: 15)),
           SizedBox(width: 3),
-          MyIconButton(onTap: (){}, icon: Icon(Icons.delete, size: 15))
+          MyIconButton(onTap: (){}, icon: Icon(Icons.more_vert, size: 15))
         ]
       )),
     ])

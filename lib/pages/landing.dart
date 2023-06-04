@@ -4,6 +4,7 @@ import 'package:beinkost/pages/kos/data_kos_page.dart';
 import 'package:beinkost/pages/tamu/data_tamu_page.dart';
 import 'package:beinkost/pages/invoice/invoice_page.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LandingPage extends StatefulWidget {
   LandingPage({super.key,});
@@ -40,24 +41,24 @@ class _LandingPage extends State<LandingPage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business, color: Colors.white,),
-            activeIcon: Icon(Icons.business, color:  Colors.blue,),
+            icon: FaIcon(FontAwesomeIcons.home, color: Colors.white,),
+            activeIcon: FaIcon(FontAwesomeIcons.home, color:  Colors.blue,),
             label: 'Data Kos',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people, color: Colors.white,),
-            activeIcon: Icon(Icons.people, color:  Colors.blue,),
+            icon: FaIcon(FontAwesomeIcons.userTie, color: Colors.white,),
+            activeIcon: FaIcon(FontAwesomeIcons.userTie, color:  Colors.blue,),
             label: 'Karyawan',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.white,),
-            activeIcon: Icon(Icons.person, color:  Colors.blue,),
+            icon: FaIcon(FontAwesomeIcons.userFriends, color: Colors.white,),
+            activeIcon: FaIcon(FontAwesomeIcons.userFriends , color:  Colors.blue,),
             label: 'Tamu',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.monetization_on, color: Colors.white,),
-            activeIcon: Icon(Icons.monetization_on, color:  Colors.blue,),
-            label: 'Invoice',
+            icon: FaIcon(FontAwesomeIcons.fileInvoiceDollar, color: Colors.white,),
+            activeIcon: FaIcon(FontAwesomeIcons.fileInvoiceDollar, color:  Colors.blue,),
+            label: 'Laporan',
           ),
         ],
       ),

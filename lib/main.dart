@@ -1,4 +1,7 @@
 import 'package:beinkost/pages/dashboard_page.dart';
+import 'package:beinkost/pages/fasilitas/master_fasilitas_page.dart';
+import 'package:beinkost/pages/invoice/invoice_page.dart';
+import 'package:beinkost/pages/invoice/status_invoice_page.dart';
 import 'package:beinkost/pages/kamar/data_kamar_page.dart';
 import 'package:beinkost/pages/kamar/detail_kamar_page.dart';
 import 'package:beinkost/pages/kamar/edit_data_kamar.dart';
@@ -11,7 +14,9 @@ import 'package:beinkost/pages/kos/input_data_kos_page.dart';
 import 'package:beinkost/pages/kos/tambah_fasilitas_kos_page.dart';
 import 'package:beinkost/pages/landing.dart';
 import 'package:beinkost/pages/plan/manajemen_plan_page.dart';
+import 'package:beinkost/pages/plan/reservasi_page.dart';
 import 'package:beinkost/pages/sign_in.dart';
+import 'package:beinkost/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignInPage(),
+      home: DataKosPage(),
     );
   }
 }

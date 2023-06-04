@@ -3,6 +3,7 @@ import 'package:beinkost/components/my_text.dart';
 import 'package:beinkost/components/my_text_icon_button.dart';
 import 'package:beinkost/pages/kontrak/detail_kontrak.dart';
 import 'package:beinkost/pages/kontrak/input_data_kontrak_page.dart';
+import 'package:beinkost/pages/plan/reservasi_page.dart';
 import 'package:flutter/material.dart';
 
 class ManajemenPlanPage extends StatefulWidget{
@@ -27,7 +28,6 @@ class _ManajemenPlanPage extends State<ManajemenPlanPage> {
       'kelas': '1',
       'harga' : 1000000,
     },
-    
   ];
 
   @override
@@ -93,10 +93,10 @@ class _ManajemenPlanPage extends State<ManajemenPlanPage> {
                   children: [
                     MyTextIconButton(
                       onTap: (){
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> InputDataKontrakPage()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ReservasiPage()));
                     }, 
                     icon: Icon(Icons.add, size: 15,color: Colors.white,), 
-                    text: 'Tambah Kontrak'
+                    text: 'Tambah Plan'
                     ),
                   ],
                 ),
@@ -161,7 +161,7 @@ class _ManajemenPlanPage extends State<ManajemenPlanPage> {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DetailKontrakPage()));
           }, icon: Icon(Icons.remove_red_eye, size: 15)),
           SizedBox(width: 3),
-          MyIconButton(onTap: (){}, icon: Icon(Icons.add, size: 15))
+          MyIconButton(onTap: (){}, icon: Icon(Icons.delete, size: 15))
         ]
       )),
     ])

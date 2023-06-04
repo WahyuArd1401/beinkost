@@ -25,7 +25,7 @@ class _SignInPage extends State<SignInPage> {
   var passUser = 'wahyu123';
   bool visible = true;
   
-  bool _checkbox = false;
+  bool  _checkbox = false;
 
   signInSuccess(){
       showDialog(
@@ -63,7 +63,7 @@ class _SignInPage extends State<SignInPage> {
                     child: Column(
                       children: [
                         // Icon(Icons.add, size: 60),
-                        const Image(image: AssetImage('assets/images/bangkit.jpg'), width: 60, height: 60,),
+                        const Image(image: AssetImage('assets/images/logo-kost.jpg'), width: 60, height: 60,),
                         const SizedBox(height: 35,),
                         MyText(text: 'Masuk', fontSize: 16, fontWeight: FontWeight.w600),
                         MyText(text: 'selamat datang di beinsoft', fontSize: 12, fontWeight: FontWeight.w400),
