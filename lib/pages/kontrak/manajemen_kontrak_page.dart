@@ -3,6 +3,7 @@ import 'package:beinkost/components/my_text.dart';
 import 'package:beinkost/components/my_text_icon_button.dart';
 import 'package:beinkost/pages/kontrak/detail_kontrak.dart';
 import 'package:beinkost/pages/kontrak/input_data_kontrak_page.dart';
+import 'package:beinkost/pages/landing.dart';
 import 'package:flutter/material.dart';
 
 class ManajemenKontrakPage extends StatefulWidget{
@@ -60,7 +61,12 @@ class _ManajemenKontrakPage extends State<ManajemenKontrakPage> {
                     Row(
                       children: [
                         IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_on, size: 30, color: Color.fromRGBO(76, 103, 147, 1))),
-                        IconButton(onPressed: (){}, icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)),
+                        IconButton(
+                          onPressed: (){
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LandingPage()));
+                            }, 
+                          icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)
+                        ),
                       ],
                     )
                   ],
@@ -170,7 +176,7 @@ class _ManajemenKontrakPage extends State<ManajemenKontrakPage> {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DetailKontrakPage()));
           }, icon: Icon(Icons.remove_red_eye, size: 15)),
           SizedBox(width: 3),
-          MyIconButton(onTap: (){}, icon: Icon(Icons.more_vert, size: 15))
+          MyIconButton(onTap: (){}, icon: Icon(Icons.delete, size: 15))
         ]
       )),
     ])

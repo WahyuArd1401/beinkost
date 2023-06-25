@@ -2,8 +2,7 @@ import 'package:beinkost/components/my_icon_button.dart';
 import 'package:beinkost/components/my_text.dart';
 import 'package:beinkost/components/my_text_icon_button.dart';
 import 'package:beinkost/pages/fasilitas/input_master_fasilitas_page.dart';
-import 'package:beinkost/pages/kontrak/detail_kontrak.dart';
-import 'package:beinkost/pages/kontrak/input_data_kontrak_page.dart';
+import 'package:beinkost/pages/landing.dart';
 import 'package:flutter/material.dart';
 
 class MasterFasilitasPage extends StatefulWidget{
@@ -40,7 +39,7 @@ class _MasterFasilitasPage extends State<MasterFasilitasPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(33, 30, 33, 20),
+            padding: const EdgeInsets.fromLTRB(27, 20, 27, 26),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -52,12 +51,14 @@ class _MasterFasilitasPage extends State<MasterFasilitasPage> {
                     Row(
                       children: [
                         IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_on, size: 30, color: Color.fromRGBO(76, 103, 147, 1))),
-                        IconButton(onPressed: (){}, icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)),
+                        IconButton(onPressed: (){
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LandingPage()));
+                        }, icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)),
                       ],
                     )
                   ],
                 ),
-                SizedBox(height: 13),
+                const SizedBox(height: 13),
 
                 //Title page
                 MyText(text: 'Kos Permata | Data kamar', fontSize: 23, fontWeight: FontWeight.w600),
@@ -67,7 +68,7 @@ class _MasterFasilitasPage extends State<MasterFasilitasPage> {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'pencarian',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontSize: 14,
                     ),
                     suffixIcon: IconButton(
@@ -80,16 +81,16 @@ class _MasterFasilitasPage extends State<MasterFasilitasPage> {
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
-                      borderSide: BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
+                      borderSide: const BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
-                      borderSide: BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
+                      borderSide: const BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
                     ),
-                    constraints: BoxConstraints(maxHeight: 45)
+                    constraints: const BoxConstraints(maxHeight: 45)
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
 
                 //button  tambah Kontrak
                 Row(
@@ -99,12 +100,12 @@ class _MasterFasilitasPage extends State<MasterFasilitasPage> {
                       onTap: (){
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> InputMasterFasilitasPage()));
                     }, 
-                    icon: Icon(Icons.add, size: 15,color: Colors.white,), 
+                    icon: const Icon(Icons.add, size: 15,color: Colors.white,), 
                     text: 'Tambah Fasilitas'
                     ),
                   ],
                 ),
-                SizedBox(height: 28,),
+                const SizedBox(height: 28,),
 
                 //Table with function
                 SingleChildScrollView(
@@ -127,9 +128,9 @@ class _MasterFasilitasPage extends State<MasterFasilitasPage> {
       columns: _creatColumns(), 
       rows: _createRows(),
       columnSpacing: 10,
-      headingRowColor: MaterialStatePropertyAll(Color.fromRGBO(76, 103, 147, 1)),
-      headingTextStyle: TextStyle(color: Colors.white),
-      border: TableBorder(
+      headingRowColor: const MaterialStatePropertyAll(Color.fromRGBO(76, 103, 147, 1)),
+      headingTextStyle: const TextStyle(color: Colors.white),
+      border: const TableBorder(
         horizontalInside: BorderSide(color: Color.fromRGBO(76, 103, 147, 1)),
       ),
       horizontalMargin: 7
@@ -150,17 +151,17 @@ class _MasterFasilitasPage extends State<MasterFasilitasPage> {
   _createRows() {
     return _kamars
     .map((kamar) => DataRow(cells: [
-      DataCell(Center(child: Text(kamar['kategori-fasilitas'].toString(), textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
-      DataCell(Center(child: Text(kamar['fasilitas'].toString(),  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
-      DataCell(Center(child: Text(kamar['jumlah'],  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text(kamar['kategori-fasilitas'].toString(), textAlign: TextAlign.center, style: const TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text(kamar['fasilitas'].toString(),  textAlign: TextAlign.center, style: const TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text(kamar['jumlah'],  textAlign: TextAlign.center, style: const TextStyle(fontSize: 9),))),
       DataCell(Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyIconButton(onTap: (){
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MasterFasilitasPage()));
-          }, icon: Icon(Icons.remove_red_eye, size: 15)),
-          SizedBox(width: 3),
-          MyIconButton(onTap: (){}, icon: Icon(Icons.more_vert, size: 15))
+          }, icon: const Icon(Icons.remove_red_eye, size: 15)),
+          const SizedBox(width: 3),
+          MyIconButton(onTap: (){}, icon: const Icon(Icons.delete, size: 15))
         ]
       )),
     ])

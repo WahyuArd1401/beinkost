@@ -3,14 +3,11 @@ import 'package:beinkost/components/my_text.dart';
 import 'package:beinkost/components/my_text_icon_button.dart';
 import 'package:beinkost/pages/invoice/status_invoice_page.dart';
 import 'package:beinkost/pages/invoice/tambah_invoice_page.dart';
-import 'package:beinkost/pages/kontrak/detail_kontrak.dart';
-import 'package:beinkost/pages/kontrak/input_data_kontrak_page.dart';
 import 'package:beinkost/pages/landing.dart';
-import 'package:beinkost/pages/plan/reservasi_page.dart';
 import 'package:flutter/material.dart';
 
 class InvoicePage extends StatefulWidget{
-  InvoicePage({super.key});
+  const InvoicePage({super.key});
 
   @override
   State<InvoicePage> createState() => _InvoicePage();
@@ -62,17 +59,17 @@ class _InvoicePage extends State<InvoicePage> {
                     )
                   ],
                 ),
-                SizedBox(height: 13),
+                const SizedBox(height: 13),
 
                 //Title page
-                MyText(text: 'Inovice', fontSize: 24, fontWeight: FontWeight.w600),
+                MyText(text: 'Invoice', fontSize: 24, fontWeight: FontWeight.w600),
                 const SizedBox(height: 10),
 
                 //Search bar
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'pencarian',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontSize: 14,
                     ),
                     suffixIcon: IconButton(
@@ -85,16 +82,16 @@ class _InvoicePage extends State<InvoicePage> {
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
-                      borderSide: BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
+                      borderSide: const BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
-                      borderSide: BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
+                      borderSide: const BorderSide(color: Color.fromRGBO(76, 103, 147, 1))
                     ),
-                    constraints: BoxConstraints(maxHeight: 45)
+                    constraints: const BoxConstraints(maxHeight: 45)
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
 
                 //button  tambah Kontrak
                 Row(
@@ -104,12 +101,12 @@ class _InvoicePage extends State<InvoicePage> {
                       onTap: (){
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> TambahInvoicePage()));
                     }, 
-                    icon: Icon(Icons.add, size: 15,color: Colors.white,), 
+                    icon: const Icon(Icons.add, size: 15,color: Colors.white,), 
                     text: 'Tambah Invoice'
                     ),
                   ],
                 ),
-                SizedBox(height: 28,),
+                const SizedBox(height: 28,),
 
                 //Table with function
                 SingleChildScrollView(
@@ -126,18 +123,16 @@ class _InvoicePage extends State<InvoicePage> {
   }
 
   _createDataTable() {
-    return Container(
-      child: DataTable(
-      columns: _creatColumns(), 
-      rows: _createRows(),
-      columnSpacing: 10,
-      headingRowColor: MaterialStatePropertyAll(Color.fromRGBO(76, 103, 147, 1)),
-      headingTextStyle: TextStyle(color: Colors.white),
-      border: TableBorder(
-        horizontalInside: BorderSide(color: Color.fromRGBO(76, 103, 147, 1)),
-      ),
-      horizontalMargin: 12
+    return DataTable(
+    columns: _creatColumns(), 
+    rows: _createRows(),
+    columnSpacing: 10,
+    headingRowColor: const MaterialStatePropertyAll(Color.fromRGBO(76, 103, 147, 1)),
+    headingTextStyle: const TextStyle(color: Colors.white),
+    border: const TableBorder(
+      horizontalInside: BorderSide(color: Color.fromRGBO(76, 103, 147, 1)),
     ),
+    horizontalMargin: 12
     ) ;
   }
 
@@ -157,22 +152,22 @@ class _InvoicePage extends State<InvoicePage> {
     return _invoices
     .map((invoice) => DataRow(cells: [
       DataCell(ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 60,),
+        constraints: const BoxConstraints(maxWidth: 60,),
         child: Center(
-          child: Text(invoice['nama'].toString(), textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))
+          child: Text(invoice['nama'].toString(), textAlign: TextAlign.center, style: const TextStyle(fontSize: 9),))
       ),),
-      DataCell(Center(child: Text(invoice['kamar'].toString() + ' | ' + invoice['lantai'] ,  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
-      DataCell(Center(child: Text(invoice['kelas'],  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
-      DataCell(Center(child: Text('Rp. ' + invoice['harga'].toString(), textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
-      DataCell(Center(child: Text(invoice['status'].toString(),  textAlign: TextAlign.center, style: TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text(invoice['kamar'].toString() + ' | ' + invoice['lantai'] ,  textAlign: TextAlign.center, style: const TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text(invoice['kelas'],  textAlign: TextAlign.center, style: const TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text('Rp. ' + invoice['harga'].toString(), textAlign: TextAlign.center, style: const TextStyle(fontSize: 9),))),
+      DataCell(Center(child: Text(invoice['status'].toString(),  textAlign: TextAlign.center, style: const TextStyle(fontSize: 9),))),
       DataCell(Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyIconButton(onTap: (){
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> StatusInvoicePage()));
-          }, icon: Icon(Icons.remove_red_eye, size: 15)),
-          SizedBox(width: 3),
-          MyIconButton(onTap: (){}, icon: Icon(Icons.delete, size: 15))
+          }, icon: const Icon(Icons.remove_red_eye, size: 15)),
+          const SizedBox(width: 3),
+          MyIconButton(onTap: (){}, icon: const Icon(Icons.delete, size: 15))
         ]
       )),
     ])

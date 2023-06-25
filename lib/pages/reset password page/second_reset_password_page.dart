@@ -24,7 +24,7 @@ class SecondResetPasswordPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //Logo
-                const Image(image: AssetImage('assets/images/bangkit.jpg'), width: 87, height: 87,),
+                const Image(image: AssetImage('assets/images/logo-kost.jpg'), width: 87, height: 87,),
                 const SizedBox(height: 138),
 
                 //Text

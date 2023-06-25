@@ -162,8 +162,8 @@ class _SignInPage extends State<SignInPage> {
                       ),
                       TextButton(
                         onPressed: (){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>FirstResetPasswordPage()));
-                        }, 
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> FirstResetPasswordPage()));
+                        },
                         child: MyText(text: 'lupa password?', fontSize: 12, fontWeight: FontWeight.w400)
                       ),
                     ],

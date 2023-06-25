@@ -6,6 +6,9 @@ import 'package:beinkost/pages/kontrak/input_data_kontrak_page.dart';
 import 'package:beinkost/pages/plan/reservasi_page.dart';
 import 'package:flutter/material.dart';
 
+import '../landing.dart';
+import 'detail_manajemen_plan_page.dart';
+
 class ManajemenPlanPage extends StatefulWidget{
   ManajemenPlanPage({super.key});
 
@@ -47,8 +50,16 @@ class _ManajemenPlanPage extends State<ManajemenPlanPage> {
                   children: [
                     Row(
                       children: [
-                        IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_on, size: 30, color: Color.fromRGBO(76, 103, 147, 1))),
-                        IconButton(onPressed: (){}, icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)),
+                        IconButton(
+                          onPressed: (){}, 
+                          icon: const Icon(Icons.notifications_on, size: 30, color: Color.fromRGBO(76, 103, 147, 1))
+                        ),
+                        IconButton(
+                          onPressed: (){
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LandingPage()));
+                            }, 
+                          icon: const Icon(Icons.account_circle, size: 30,color: Color.fromRGBO(76, 103, 147, 1),)
+                        ),
                       ],
                     )
                   ],
@@ -158,7 +169,7 @@ class _ManajemenPlanPage extends State<ManajemenPlanPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyIconButton(onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DetailKontrakPage()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DetailManajemenPlanPage()));
           }, icon: Icon(Icons.remove_red_eye, size: 15)),
           SizedBox(width: 3),
           MyIconButton(onTap: (){}, icon: Icon(Icons.delete, size: 15))

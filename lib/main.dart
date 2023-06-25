@@ -5,6 +5,8 @@ import 'package:beinkost/pages/invoice/status_invoice_page.dart';
 import 'package:beinkost/pages/kamar/data_kamar_page.dart';
 import 'package:beinkost/pages/kamar/detail_kamar_page.dart';
 import 'package:beinkost/pages/kamar/edit_data_kamar.dart';
+import 'package:beinkost/pages/karyawan/detail_karyawan_page.dart';
+import 'package:beinkost/pages/karyawan/input_data_karyawan_page.dart';
 import 'package:beinkost/pages/kontrak/input_data_kontrak_page.dart';
 import 'package:beinkost/pages/kontrak/manajemen_kontrak_page.dart';
 import 'package:beinkost/pages/kos/data_kos_page.dart';
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DataKosPage(),
+      home: SignInPage(),
     );
   }
 }

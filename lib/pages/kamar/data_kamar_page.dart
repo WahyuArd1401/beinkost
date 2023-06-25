@@ -192,7 +192,7 @@ class _DataKamarPage extends State<DataKamarPage> {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>DetailKamarPage()));
           }, icon: Icon(Icons.remove_red_eye, size: 15)),
           SizedBox(width: 3),
-          MyIconButton(onTap: (){}, icon: Icon(Icons.more_vert, size: 15))
+          MyIconButton(onTap: (){}, icon: Icon(Icons.delete, size: 15))
         ]
       )),
     ])
